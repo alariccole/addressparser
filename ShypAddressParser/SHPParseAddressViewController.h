@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Alaric Cole. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface SHPParseAddressViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextView *addressTextView;

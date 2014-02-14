@@ -95,8 +95,7 @@
 			children = (
 				6DEA16C518A6E49300EB4FFC /* SHPAppDelegate.h */,
 				6DEA16C618A6E49300EB4FFC /* SHPAppDelegate.m */,
-				6DEA179F18AECBBB00EB4FFC /* SHPAddressUtils.h */,
-				6DEA17A018AECBBB00EB4FFC /* SHPAddressUtils.m */,
+				6DEA17A218AECDC900EB4FFC /* Utils */,
 				6DEA179E18AECB6400EB4FFC /* Controller */,
 				6DEA179D18AECB5300EB4FFC /* View */,
 				6DEA179C18AECB4100EB4FFC /* Model */,
@@ -145,6 +144,15 @@
 				6DEA16CC18A6E49300EB4FFC /* SHPParseAddressViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		6DEA17A218AECDC900EB4FFC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6DEA179F18AECBBB00EB4FFC /* SHPAddressUtils.h */,
+				6DEA17A018AECBBB00EB4FFC /* SHPAddressUtils.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

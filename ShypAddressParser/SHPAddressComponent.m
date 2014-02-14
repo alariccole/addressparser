@@ -9,6 +9,7 @@
 #import "SHPAddressComponent.h"
 
 @implementation SHPAddressComponent
+
 -(id)initWithCaption:(NSString*)caption andContent:(NSString*)content
 {
 	self = [super init];
@@ -17,7 +18,6 @@
 		self.content  = content;
     }
     return self;
-
 
 }
 @end

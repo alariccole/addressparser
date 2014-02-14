@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Alaric Cole. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface SHPAddressUtils : NSObject
 +(NSDictionary*)addressComponentsFromAddress:(NSString*)address;

@@ -16,56 +16,34 @@
 
 @implementation SHPConfirmAddressViewController
 
+NSString *const kAddressCell    = @"AddressCell";
 
--(void)viewDidAppear:(BOOL)animated
+
+
+#pragma mark lifecycle
+- (void)didReceiveMemoryWarning
 {
-	[super viewDidAppear:animated];
-
-
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-
-	// eg:
-	// addressComponents  {
-	//     City = Anytown;
-	//     Country = USA;
-	//     State = NY;
-	//     Street = "100 Main Street";
-	//     ZIP = 12345;
-	// }
-
-
-//
-//	self.nameTextField.text = self.addressComponents[NSTextCheckingNameKey];
-//	//self.organizationTextField.text = self.addressComponents[NSTextCheckingOrganizationKey];
-//
-//
-//	self.streetTextField.text = self.addressComponents[NSTextCheckingStreetKey];
-//	self.cityTextField.text = self.addressComponents[NSTextCheckingCityKey];
-//	self.stateTextField.text = self.addressComponents[NSTextCheckingStateKey];
-//	self.zipTextField.text = self.addressComponents[NSTextCheckingZIPKey];
-//	self.countryTextField.text = self.addressComponents[NSTextCheckingCountryKey];
-//
-
-//	self.addressComponentsArray = @[
-//									self.addressComponents[NSTextCheckingNameKey],
-//									self.addressComponents[NSTextCheckingStreetKey],
-//									self.addressComponents[NSTextCheckingCityKey],
-//									self.addressComponents[NSTextCheckingZIPKey],
-//									self.addressComponents[NSTextCheckingCountryKey],
-//
-//									];
 }
 
+#pragma mark MAIN
+/*
+ * Here we set the individual parts of the address via one dictionary, 
+ * then populate our datasource with the parts we're interested in.
+ */
 -(void)setAddressComponents:(NSDictionary *)addressComponents
 {
 	_addressComponents = addressComponents;
 
 
-	//sorting manually because we expect the order Name, Street, City, Zip, Country.
+	//Sorting manually because we expect the order Name, Street, City, Zip, Country.
 	//This order could change due to locale
 	//TODO: check ABCreateStringWithAddressDictionary() or other method to arrange an address according to locale
 
@@ -81,7 +59,7 @@
 
 }
 
-
+#pragma mark UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	return self.addressComponentsArray.count;
@@ -95,7 +73,7 @@
 -(UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-	SHPCell * cell  = [tableView dequeueReusableCellWithIdentifier:@"CELL"];
+	SHPCell * cell  = [tableView dequeueReusableCellWithIdentifier:kAddressCell];
 
 
 	NSInteger row = indexPath.row;
@@ -109,13 +87,6 @@
 
 	return cell;
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 
 

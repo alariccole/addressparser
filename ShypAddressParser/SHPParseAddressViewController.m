@@ -32,10 +32,11 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
-	if ([segue.identifier isEqualToString:@"confirmSegue"]) {
+	if ([segue.identifier isEqualToString:@"confirmSegue"])
+	{
 
 
-		 NSDictionary *addressComponents = [SHPAddressUtils addressComponentsFromAddress:self.addressTextView.text];
+		NSDictionary *addressComponents = [SHPAddressUtils addressComponentsFromAddress:self.addressTextView.text];
 
 		SHPConfirmAddressViewController * confirmAddressController = (SHPConfirmAddressViewController*)segue.destinationViewController;
 
