@@ -10,4 +10,46 @@
 
 @implementation SHPAddressUtils
 
++(NSDictionary*)addressComponentsFromAddress:(NSString*)address
+{
+	NSMutableDictionary * addressDictionary;
+
+	NSError *error = nil;
+	NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress  error:&error];
+
+	NSArray *matches = [detector matchesInString:address options:0 range:NSMakeRange(0, [address length])];
+	for (NSTextCheckingResult *match in matches)
+	{
+		//assuming just one address here and returning the first one
+		if ([match resultType] == NSTextCheckingTypeAddress)
+        {
+
+            addressDictionary = [match addressComponents].mutableCopy;
+
+			NSString *name = addressDictionary[NSTextCheckingNameKey];
+			//the name does not seem to get populated
+			//if not, grab the first part of the string
+			if (!name && match.range.location > 0) {
+				// strip whitespace, grab string from beginning of string to beginning of this match
+				//TODO: strip out organization if necessary
+				name = [address substringToIndex:match.range.location - 1];
+
+				//force it in
+				if(name) addressDictionary[NSTextCheckingNameKey] = name;
+
+			}
+            //NSLog(@"addressComponents  %@",addressDictionary);
+
+			return addressDictionary.copy;
+
+        }
+
+
+
+	}
+
+	return addressDictionary;
+	
+}
+
 @end
