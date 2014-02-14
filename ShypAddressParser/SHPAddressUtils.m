@@ -33,7 +33,8 @@
 				// grab string from beginning of string to beginning of this match
 				//TODO: strip out organization if necessary
 				name = [address substringToIndex:match.range.location - 1];
-								//force it in
+
+				//force it in
 				if(name) addressDictionary[NSTextCheckingNameKey] = name;
 
 			}
@@ -52,7 +53,8 @@
 	}
 
 	//cleanup and remove whitespace
-	[addressDictionary enumerateKeysAndObjectsUsingBlock:^(id key, NSString* obj, BOOL *stop) {
+
+	[addressDictionary.copy enumerateKeysAndObjectsUsingBlock:^(id key, NSString* obj, BOOL *stop) {
 		addressDictionary[key] = [obj stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
 	}];
