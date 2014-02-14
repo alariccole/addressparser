@@ -30,25 +30,34 @@
 			//the name does not seem to get populated
 			//if not, grab the first part of the string
 			if (!name && match.range.location > 0) {
-				// strip whitespace, grab string from beginning of string to beginning of this match
+				// grab string from beginning of string to beginning of this match
 				//TODO: strip out organization if necessary
 				name = [address substringToIndex:match.range.location - 1];
-
-				//force it in
+								//force it in
 				if(name) addressDictionary[NSTextCheckingNameKey] = name;
 
 			}
+
+
             //NSLog(@"addressComponents  %@",addressDictionary);
 
-			return addressDictionary.copy;
 
-        }
+			break;
+		}
+
+
 
 
 
 	}
 
-	return addressDictionary;
+	//cleanup and remove whitespace
+	[addressDictionary enumerateKeysAndObjectsUsingBlock:^(id key, NSString* obj, BOOL *stop) {
+		addressDictionary[key] = [obj stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+	}];
+
+	return addressDictionary.copy;
 	
 }
 
