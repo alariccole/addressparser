@@ -10,6 +10,19 @@
 
 @implementation SHPAddressUtils
 
+/*
+ * Parses out individual parts of an address when supplied with a block of text.
+ * @param address A block of text, typically line or comma delimited. eg:
+ * Alaric Cole
+ * 13 Lucky St.
+ * San Francisco, CA 94107
+ *
+ *
+ * Caveats: 
+ *	   Only tested for US addresses. Assuming support for international addresses is not as robust
+ *     Names don't appear to be parsed, contrary to documentation. Here it is done manually.
+ *     There's no built-in support for parsing Apartment/unit numbers apart from the street address.
+ */
 +(NSDictionary*)addressComponentsFromAddress:(NSString*)address
 {
 	NSMutableDictionary * addressDictionary;
@@ -39,21 +52,15 @@
 
 			}
 
-
             //NSLog(@"addressComponents  %@",addressDictionary);
-
 
 			break;
 		}
 
 
-
-
-
 	}
 
 	//cleanup and remove whitespace
-
 	[addressDictionary.copy enumerateKeysAndObjectsUsingBlock:^(id key, NSString* obj, BOOL *stop) {
 		addressDictionary[key] = [obj stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
