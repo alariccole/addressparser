@@ -12,15 +12,7 @@
 
 @property (strong, nonatomic) NSDictionary *addressComponents;
 
-
-
-@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
-@property (strong, nonatomic) IBOutlet UITextField *organizationTextField;
-@property (strong, nonatomic) IBOutlet UITextField *streetTextField;
-@property (strong, nonatomic) IBOutlet UITextField *cityTextField;
-@property (strong, nonatomic) IBOutlet UITextField *stateTextField;
-@property (strong, nonatomic) IBOutlet UITextField *zipTextField;
-@property (strong, nonatomic) IBOutlet UITextField *countryTextField;
+@property (strong, nonatomic) NSArray *addressComponentsArray;
 
 
 @end

@@ -17,6 +17,9 @@
 		6DEA16CD18A6E49300EB4FFC /* SHPParseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEA16CC18A6E49300EB4FFC /* SHPParseAddressViewController.m */; };
 		6DEA16CF18A6E49300EB4FFC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DEA16CE18A6E49300EB4FFC /* Images.xcassets */; };
 		6DEA16ED18A6E69E00EB4FFC /* SHPConfirmAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEA16EC18A6E69E00EB4FFC /* SHPConfirmAddressViewController.m */; };
+		6DEA179818AEA86500EB4FFC /* SHPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEA179718AEA86500EB4FFC /* SHPCell.m */; };
+		6DEA179B18AEAC4700EB4FFC /* SHPAddressComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEA179A18AEAC4700EB4FFC /* SHPAddressComponent.m */; };
+		6DEA17A118AECBBB00EB4FFC /* SHPAddressUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEA17A018AECBBB00EB4FFC /* SHPAddressUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,12 @@
 		6DEA16D518A6E49300EB4FFC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6DEA16EB18A6E69E00EB4FFC /* SHPConfirmAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPConfirmAddressViewController.h; sourceTree = "<group>"; };
 		6DEA16EC18A6E69E00EB4FFC /* SHPConfirmAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPConfirmAddressViewController.m; sourceTree = "<group>"; };
+		6DEA179618AEA86500EB4FFC /* SHPCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPCell.h; sourceTree = "<group>"; };
+		6DEA179718AEA86500EB4FFC /* SHPCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPCell.m; sourceTree = "<group>"; };
+		6DEA179918AEAC4700EB4FFC /* SHPAddressComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPAddressComponent.h; sourceTree = "<group>"; };
+		6DEA179A18AEAC4700EB4FFC /* SHPAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPAddressComponent.m; sourceTree = "<group>"; };
+		6DEA179F18AECBBB00EB4FFC /* SHPAddressUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPAddressUtils.h; sourceTree = "<group>"; };
+		6DEA17A018AECBBB00EB4FFC /* SHPAddressUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPAddressUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +95,11 @@
 			children = (
 				6DEA16C518A6E49300EB4FFC /* SHPAppDelegate.h */,
 				6DEA16C618A6E49300EB4FFC /* SHPAppDelegate.m */,
-				6DEA16C818A6E49300EB4FFC /* Main.storyboard */,
-				6DEA16CB18A6E49300EB4FFC /* SHPParseAddressViewController.h */,
-				6DEA16CC18A6E49300EB4FFC /* SHPParseAddressViewController.m */,
-				6DEA16EB18A6E69E00EB4FFC /* SHPConfirmAddressViewController.h */,
-				6DEA16EC18A6E69E00EB4FFC /* SHPConfirmAddressViewController.m */,
+				6DEA179F18AECBBB00EB4FFC /* SHPAddressUtils.h */,
+				6DEA17A018AECBBB00EB4FFC /* SHPAddressUtils.m */,
+				6DEA179E18AECB6400EB4FFC /* Controller */,
+				6DEA179D18AECB5300EB4FFC /* View */,
+				6DEA179C18AECB4100EB4FFC /* Model */,
 				6DEA16CE18A6E49300EB4FFC /* Images.xcassets */,
 				6DEA16BD18A6E49300EB4FFC /* Supporting Files */,
 			);
@@ -106,6 +115,36 @@
 				6DEA16C418A6E49300EB4FFC /* ShypAddressParser-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6DEA179C18AECB4100EB4FFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6DEA179918AEAC4700EB4FFC /* SHPAddressComponent.h */,
+				6DEA179A18AEAC4700EB4FFC /* SHPAddressComponent.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6DEA179D18AECB5300EB4FFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6DEA16C818A6E49300EB4FFC /* Main.storyboard */,
+				6DEA179618AEA86500EB4FFC /* SHPCell.h */,
+				6DEA179718AEA86500EB4FFC /* SHPCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6DEA179E18AECB6400EB4FFC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6DEA16EB18A6E69E00EB4FFC /* SHPConfirmAddressViewController.h */,
+				6DEA16EC18A6E69E00EB4FFC /* SHPConfirmAddressViewController.m */,
+				6DEA16CB18A6E49300EB4FFC /* SHPParseAddressViewController.h */,
+				6DEA16CC18A6E49300EB4FFC /* SHPParseAddressViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +216,10 @@
 				6DEA16C718A6E49300EB4FFC /* SHPAppDelegate.m in Sources */,
 				6DEA16C318A6E49300EB4FFC /* main.m in Sources */,
 				6DEA16ED18A6E69E00EB4FFC /* SHPConfirmAddressViewController.m in Sources */,
+				6DEA17A118AECBBB00EB4FFC /* SHPAddressUtils.m in Sources */,
 				6DEA16CD18A6E49300EB4FFC /* SHPParseAddressViewController.m in Sources */,
+				6DEA179B18AEAC4700EB4FFC /* SHPAddressComponent.m in Sources */,
+				6DEA179818AEA86500EB4FFC /* SHPCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
