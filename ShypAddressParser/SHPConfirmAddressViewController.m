@@ -12,6 +12,16 @@
 
 @interface SHPConfirmAddressViewController ()
 
+@property (strong, nonatomic) NSArray *addressComponentsArray;
+
+@property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
+
+@property (nonatomic, strong) MKMapSnapshotter *mapSnapshotter;
+
+@property (nonatomic, strong) CLLocation *location;
+
+@property (nonatomic, copy) NSString *normalizedAddressString;
+
 @end
 
 @implementation SHPConfirmAddressViewController
@@ -181,10 +191,12 @@ NSString *const kAddressCell    = @"AddressCell";
 	if (_location && location == _location ) {
 		return;
 	}
-	_location	= location;
 
 
-	if (_location ) {
+	if (location ) {
+
+		_location	= location;
+
 
 		if (self.mapSnapshotter.isLoading ) {
 			[self.mapSnapshotter cancel];
@@ -236,7 +248,7 @@ NSString *const kAddressCell    = @"AddressCell";
 			 UIGraphicsEndImageContext();
 
 			 //run UI methods on the main thread
-			 dispatch_sync(dispatch_get_main_queue(),
+			 dispatch_async(dispatch_get_main_queue(),
 			   ^{
 
 				   self.mapImageView.image = compositeImage;
@@ -251,15 +263,10 @@ NSString *const kAddressCell    = @"AddressCell";
 			   });
 
 
-
-
-
-			 
 		 }];
 		
 	}
-	
-	
+
 	
 }
 

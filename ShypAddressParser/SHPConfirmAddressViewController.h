@@ -16,14 +16,5 @@ extern NSString *const kAddressCell;
 
 @property (strong, nonatomic) NSDictionary *addressComponents;
 
-@property (strong, nonatomic) NSArray *addressComponentsArray;
-
-@property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
-
-@property (nonatomic, strong) MKMapSnapshotter *mapSnapshotter;
-
-@property (nonatomic, strong) CLLocation *location;
-
-@property (nonatomic, copy) NSString *normalizedAddressString;
 
 @end

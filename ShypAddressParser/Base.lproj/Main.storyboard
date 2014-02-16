@@ -16,16 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" keyboardDismissMode="interactive" text="Alaric Cole  177 Townsend #831 San Francisco, CA 94107 USA" translatesAutoresizingMaskIntoConstraints="NO" id="L7M-Wm-0wA">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Alaric Cole  177 Townsend #831 San Francisco, CA 94107 USA" translatesAutoresizingMaskIntoConstraints="NO" id="L7M-Wm-0wA">
                                 <rect key="frame" x="0.0" y="128" width="320" height="440"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Shipping To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-fk-Q3f">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-fk-Q3f">
                                 <rect key="frame" x="10" y="87" width="303" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="QxZ-fB-pXb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,6 +40,9 @@
                             <constraint firstAttribute="trailing" secondItem="L7M-Wm-0wA" secondAttribute="trailing" id="Tjz-gV-JC5"/>
                             <constraint firstItem="cnE-75-WxY" firstAttribute="top" secondItem="L7M-Wm-0wA" secondAttribute="bottom" id="UW7-T8-uM3"/>
                             <constraint firstItem="L7M-Wm-0wA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="XUS-1z-Erx"/>
+                            <constraint firstItem="a1g-fk-Q3f" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="bEe-ax-Rav"/>
+                            <constraint firstAttribute="trailing" secondItem="a1g-fk-Q3f" secondAttribute="trailing" constant="7" id="dFy-nr-zne"/>
+                            <constraint firstItem="a1g-fk-Q3f" firstAttribute="top" secondItem="PUc-mc-i6z" secondAttribute="bottom" constant="23" id="gtH-jL-Z9o"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mwr-bn-yvb">
