@@ -25,15 +25,12 @@
  */
 +(NSDictionary*)addressComponentsFromAddress:(NSString*)address
 {
-	NSMutableDictionary * addressDictionary;
+	__block NSMutableDictionary * addressDictionary;
 
 	NSError *error = nil;
 	NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress  error:&error];
 
-	NSArray *matches = [detector matchesInString:address options:0 range:NSMakeRange(0, [address length])];
-	for (NSTextCheckingResult *match in matches)
-	{
-		//assuming just one address here and returning the first one
+	[detector enumerateMatchesInString:address options:0 range:NSMakeRange(0, address.length) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
 		if ([match resultType] == NSTextCheckingTypeAddress)
         {
 
@@ -53,12 +50,11 @@
 			}
 
             //NSLog(@"addressComponents  %@",addressDictionary);
-
-			break;
+			
+			*stop = YES;
 		}
 
-
-	}
+	}];
 
 	//cleanup and remove whitespace
 	[addressDictionary.copy enumerateKeysAndObjectsUsingBlock:^(id key, NSString* obj, BOOL *stop) {
