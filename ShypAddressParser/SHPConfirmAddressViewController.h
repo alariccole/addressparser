@@ -7,6 +7,8 @@
 //
 
 @import UIKit;
+@import MapKit;
+@import QuartzCore;
 
 @interface SHPConfirmAddressViewController : UITableViewController
 extern NSString *const kAddressCell;
@@ -16,5 +18,12 @@ extern NSString *const kAddressCell;
 
 @property (strong, nonatomic) NSArray *addressComponentsArray;
 
+@property (strong, nonatomic) IBOutlet UIImageView *mapImageView;
+
+@property (nonatomic, strong) MKMapSnapshotter *mapSnapshotter;
+
+@property (nonatomic, strong) CLLocation *location;
+
+@property (nonatomic, copy) NSString *normalizedAddressString;
 
 @end

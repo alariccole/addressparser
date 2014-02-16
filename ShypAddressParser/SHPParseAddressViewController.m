@@ -19,7 +19,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+	//self.addressTextView.dataDetectorTypes = UIDataDetectorTypeAddress;
 }
 
 - (void)didReceiveMemoryWarning

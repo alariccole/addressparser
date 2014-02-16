@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Alaric Cole  177 Townsend #831 San Francisco, CA 94107 USA" translatesAutoresizingMaskIntoConstraints="NO" id="L7M-Wm-0wA">
-                                <rect key="frame" x="0.0" y="128" width="320" height="154"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" keyboardDismissMode="interactive" text="Alaric Cole  177 Townsend #831 San Francisco, CA 94107 USA" translatesAutoresizingMaskIntoConstraints="NO" id="L7M-Wm-0wA">
+                                <rect key="frame" x="0.0" y="128" width="320" height="440"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shipping To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-fk-Q3f">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Shipping To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-fk-Q3f">
                                 <rect key="frame" x="10" y="87" width="303" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
@@ -32,6 +32,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L7M-Wm-0wA" firstAttribute="top" secondItem="a1g-fk-Q3f" secondAttribute="bottom" constant="20" id="HnH-vT-sGd"/>
+                            <constraint firstAttribute="trailing" secondItem="L7M-Wm-0wA" secondAttribute="trailing" id="Tjz-gV-JC5"/>
+                            <constraint firstItem="cnE-75-WxY" firstAttribute="top" secondItem="L7M-Wm-0wA" secondAttribute="bottom" id="UW7-T8-uM3"/>
+                            <constraint firstItem="L7M-Wm-0wA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="XUS-1z-Erx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mwr-bn-yvb">
                         <barButtonItem key="rightBarButtonItem" title="Parse Address" id="fSP-D2-ZXC">
@@ -56,6 +62,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableFooterView" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hKT-Wj-Zzn">
+                            <rect key="frame" x="0.0" y="126" width="320" height="220"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddressCell" id="1Ca-Nt-Ice" customClass="SHPCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="40"/>
@@ -88,6 +98,9 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Confirm Address" id="FQj-rf-Dc1"/>
+                    <connections>
+                        <outlet property="mapImageView" destination="hKT-Wj-Zzn" id="ePQ-1i-Rge"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ruf-JJ-3kJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="yOF-fZ-Eca" style="IBUITableViewCellStyleDefault" id="aYl-cZ-RRV">

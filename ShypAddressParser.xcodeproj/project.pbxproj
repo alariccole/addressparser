@@ -20,6 +20,9 @@
 		6DEA179818AEA86500EB4FFC /* SHPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEA179718AEA86500EB4FFC /* SHPCell.m */; };
 		6DEA179B18AEAC4700EB4FFC /* SHPAddressComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEA179A18AEAC4700EB4FFC /* SHPAddressComponent.m */; };
 		6DEA17A118AECBBB00EB4FFC /* SHPAddressUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEA17A018AECBBB00EB4FFC /* SHPAddressUtils.m */; };
+		6DEA17A418AFF68600EB4FFC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEA17A318AFF68600EB4FFC /* MapKit.framework */; };
+		6DEA17A618AFF99B00EB4FFC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEA17A518AFF99B00EB4FFC /* QuartzCore.framework */; };
+		6DEA17A818AFF9A400EB4FFC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DEA17A718AFF9A300EB4FFC /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		6DEA179A18AEAC4700EB4FFC /* SHPAddressComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPAddressComponent.m; sourceTree = "<group>"; };
 		6DEA179F18AECBBB00EB4FFC /* SHPAddressUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPAddressUtils.h; sourceTree = "<group>"; };
 		6DEA17A018AECBBB00EB4FFC /* SHPAddressUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPAddressUtils.m; sourceTree = "<group>"; };
+		6DEA17A318AFF68600EB4FFC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6DEA17A518AFF99B00EB4FFC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6DEA17A718AFF9A300EB4FFC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEA17A818AFF9A400EB4FFC /* CoreLocation.framework in Frameworks */,
+				6DEA17A618AFF99B00EB4FFC /* QuartzCore.framework in Frameworks */,
+				6DEA17A418AFF68600EB4FFC /* MapKit.framework in Frameworks */,
 				6DEA16B918A6E49300EB4FFC /* CoreGraphics.framework in Frameworks */,
 				6DEA16BB18A6E49300EB4FFC /* UIKit.framework in Frameworks */,
 				6DEA16B718A6E49300EB4FFC /* Foundation.framework in Frameworks */,
@@ -82,6 +91,9 @@
 		6DEA16B518A6E49300EB4FFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6DEA17A718AFF9A300EB4FFC /* CoreLocation.framework */,
+				6DEA17A518AFF99B00EB4FFC /* QuartzCore.framework */,
+				6DEA17A318AFF68600EB4FFC /* MapKit.framework */,
 				6DEA16B618A6E49300EB4FFC /* Foundation.framework */,
 				6DEA16B818A6E49300EB4FFC /* CoreGraphics.framework */,
 				6DEA16BA18A6E49300EB4FFC /* UIKit.framework */,
@@ -138,10 +150,10 @@
 		6DEA179E18AECB6400EB4FFC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6DEA16EB18A6E69E00EB4FFC /* SHPConfirmAddressViewController.h */,
-				6DEA16EC18A6E69E00EB4FFC /* SHPConfirmAddressViewController.m */,
 				6DEA16CB18A6E49300EB4FFC /* SHPParseAddressViewController.h */,
 				6DEA16CC18A6E49300EB4FFC /* SHPParseAddressViewController.m */,
+				6DEA16EB18A6E69E00EB4FFC /* SHPConfirmAddressViewController.h */,
+				6DEA16EC18A6E69E00EB4FFC /* SHPConfirmAddressViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
