@@ -193,59 +193,67 @@ NSString *const kAddressCell    = @"AddressCell";
 
 		self.mapSnapshotter = [self mapSnapshotterWithLocation:_location];
 
-		[self.mapSnapshotter startWithCompletionHandler:^(MKMapSnapshot *snapshot, NSError *e)
+		//since some graphics manipulation has been added, go ahead and run generation on a bg queue
+		[self.mapSnapshotter  startWithQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+						   completionHandler:^(MKMapSnapshot *snapshot, NSError *error)
 		 {
 
-			 if (!e) {
 
-				 UIImage *image = snapshot.image;
-				 /// self.mapImageView.image = image;
+			 if (error) {
 
-				 //MKPolyline
-				 MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:nil reuseIdentifier:nil];
-				 pin.pinColor = MKPinAnnotationColorGreen;
-				 UIButton* button =[UIButton buttonWithType:UIButtonTypeSystem];
-				 [button setTitle:@"HI" forState:UIControlStateNormal];
-
-				 //pin.rightCalloutAccessoryView = button;
-
-
-				 UIGraphicsBeginImageContextWithOptions(image.size, YES, image.scale);
-				 {
-					 [image drawAtPoint:CGPointMake(0.0f, 0.0f)];
-
-					 CGRect rect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-					 // for (id <MKAnnotation> annotation in self.mapView.annotations) {
-						 CGPoint point = [snapshot pointForCoordinate:location.coordinate];
-						 if (CGRectContainsPoint(rect, point)) {
-							 point.x = point.x + pin.centerOffset.x -
-							 (pin.bounds.size.width / 2.0f);
-							 point.y = point.y + pin.centerOffset.y -
-							 (pin.bounds.size.height / 2.0f);
-							 [pin.image drawAtPoint:point];
-						 }
-					 // }
-
-					 UIImage *compositeImage = UIGraphicsGetImageFromCurrentImageContext();
-//					 NSData *data = UIImagePNGRepresentation(compositeImage);
-//					 [data writeToURL:fileURL atomically:YES];
-					 self.mapImageView.image = compositeImage;
-
-				 }
-				 UIGraphicsEndImageContext();
-
-
-
-
-				 //fade into view once we have an image
-				 [UIView animateWithDuration:2.0 delay:0. options:UIViewAnimationOptionCurveEaseInOut animations:^{
-
-					  self.mapImageView.alpha = 1.0;
-
-				 } completion:nil];
-				 
-
+				 NSLog(@"%@",[error localizedDescription]);
+				 return;
 			 }
+
+
+			UIImage *image = snapshot.image;
+
+
+			//TODO: check MKPolyline
+			MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:nil reuseIdentifier:nil];
+			pin.pinColor = MKPinAnnotationColorGreen;
+
+
+			UIGraphicsBeginImageContextWithOptions(image.size, YES, image.scale);
+
+			[image drawAtPoint:CGPointMake(0.0f, 0.0f)];
+
+			CGRect rect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+
+			 CGPoint point = [snapshot pointForCoordinate:location.coordinate];
+			 if (CGRectContainsPoint(rect, point)) {
+				 point.x = point.x + pin.centerOffset.x -
+				 (pin.bounds.size.width / 2.0f);
+				 point.y = point.y + pin.centerOffset.y -
+				 (pin.bounds.size.height / 2.0f);
+				 [pin.image drawAtPoint:point];
+			 }
+
+
+
+			 UIImage *compositeImage = UIGraphicsGetImageFromCurrentImageContext();
+
+			 UIGraphicsEndImageContext();
+
+			 //run UI methods on the main thread
+			 dispatch_sync(dispatch_get_main_queue(),
+			   ^{
+
+				   self.mapImageView.image = compositeImage;
+
+				   //fade into view once we have an image
+				   [UIView animateWithDuration:2.0 delay:0. options:UIViewAnimationOptionCurveEaseInOut animations:^{
+
+					   self.mapImageView.alpha = 1.0;
+
+				   } completion:nil];
+
+			   });
+
+
+
+
+
 			 
 		 }];
 		
